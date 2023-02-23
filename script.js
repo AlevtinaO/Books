@@ -1,4 +1,5 @@
-const books [
+
+let books = [
     {
         title: "Путешествие на Кон-Тики",
         authors: "Тур Хейердал",
@@ -39,3 +40,19 @@ const books [
         image: "images/3.jpg"
     }
 ]
+
+const mainContainer = document.getElementById("main")
+function books(){
+books.forEach(function(book) {
+    mainContainer.innerHTML += `
+    <div class="books">
+    <img src="${book.image}"/>
+    <h1>${book.title}</h1>
+    <p>${book.authors}</p>
+    <p>${book.year}</p>
+    <p>${book.publish}</p>
+    </div>
+    `
+})
+ }
+
