@@ -48,10 +48,14 @@ books.forEach(function(book) {
     mainContainer.innerHTML += `
     <div class="books">
     <img class="image" src="${book.image}"/>
-    <h1>${book.title}</h1>
+    <h1 class="title-book">${book.title}</h1>
     <p>${book.authors}</p>
-    <p>${book.year}</p>
-    <p>${book.publish}</p>
+    <p class="gray">${book.year}</p>
+    <p class="gray">${book.publish}</p>
+    <div class="button">
+       <button class="style-button left">Изменить</button>
+       <button class="style-button right">Удалить</button>
+    </div>
     </div>
     `
 })
