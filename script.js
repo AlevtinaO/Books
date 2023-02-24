@@ -42,11 +42,12 @@ let books = [
 ]
 
 const mainContainer = document.getElementById("main")
-function books(){
+
+
 books.forEach(function(book) {
     mainContainer.innerHTML += `
     <div class="books">
-    <img src="${book.image}"/>
+    <img class="image" src="${book.image}"/>
     <h1>${book.title}</h1>
     <p>${book.authors}</p>
     <p>${book.year}</p>
@@ -54,5 +55,5 @@ books.forEach(function(book) {
     </div>
     `
 })
- }
+ 
 
