@@ -1,6 +1,7 @@
 
 let books = [
     {
+        id:1,
         title: "Путешествие на Кон-Тики",
         authors: "Тур Хейердал",
         year: "2022",
@@ -9,6 +10,7 @@ let books = [
     },
 
     {
+        id:2,
         title: "Ра",
         authors: "Тур Хейердал",
         year: "2020",
@@ -17,6 +19,7 @@ let books = [
     },
 
     {
+        id:3,
        title: "Аку Аку",
         authors: "Тур Хейердал",
         year: "2021",
@@ -25,6 +28,7 @@ let books = [
     },
 
     {
+        id:4,
         title: "Мальдивская загадка",
         authors: "Тур Хейердал",
         year: "2021",
@@ -33,6 +37,7 @@ let books = [
     },
 
     {
+        id:5,
         title: "Экспедиция 'Тигрис'",
         authors: "Тур Хейердал",
         year: "2015",
@@ -40,11 +45,13 @@ let books = [
         image: "images/3.jpg"
     }
 ]
-
+// объект, куда пишется всё в HTML
 const mainContainer = document.getElementById("main")
 
-
-books.forEach(function(book) {
+// создание шаблона, куда добавляются данные из массива
+function renderBook() {
+    mainContainer.innerHTML=""
+    books.forEach(function(book) {
     mainContainer.innerHTML += `
     <div class="books">
     <img class="image" src="${book.image}"/>
@@ -54,10 +61,72 @@ books.forEach(function(book) {
     <p class="gray">${book.publish}</p>
     <div class="button">
        <button class="style-button left">Изменить</button>
-       <button class="style-button right">Удалить</button>
+       <button onclick="deleteBook(${book.id})" class="style-button right">Удалить</button>
     </div>
     </div>
     `
 })
- 
+}
+// удаление книг
+function deleteBook(id){
+    const book=books.find((b)=>{
+        return b.id===id
+    })
+    const bookIndex=books.indexOf(book)
+    books.splice(bookIndex,1)
+    renderBook()
+}
 
+//добавление функции очистки полей
+function clearForm(){
+    const titleValue=document.getElementById('title').value=""
+    const authorsValue=document.getElementById('authors').value=""
+    const yearValue=document.getElementById('year').value=""
+    const publishValue=document.getElementById('publish').value=""
+    const imageValue=document.getElementById('image').value=""  
+}
+//добавление функции, что именно добавляется и создание объекта по образцу уже существующих
+function addBook() {
+const titleValue=document.getElementById('title').value
+const authorsValue=document.getElementById('authors').value
+const yearValue=document.getElementById('year').value
+const publishValue=document.getElementById('publish').value
+const imageValue=document.getElementById('image').value
+
+const newBook = {
+    title: titleValue,
+    authors: authorsValue,
+    year: yearValue,
+    publish:publishValue,
+    image:imageValue
+}
+
+books.push(newBook) // добавление новой книги
+clearForm()   // функция очистки
+renderBook() // функция добавления книги, переписывающая список
+addMenu() // функция закрытия формы
+}
+renderBook() // вызов функции, чтобы существующий список был виден
+ 
+//функция открытия и закрытия формы
+let isOpen = false
+
+function addMenu() {
+    const container = document.getElementById("formblock")
+    const addBook = document.getElementById("addbook")
+    const closeBook =document.getElementById("closebook")
+
+    if (isOpen) {
+       container.style.display = "none" 
+       closeBook.style.display = "none"
+       addBook.style.display = "flex"
+       isOpen = false
+    }
+    else {
+       container.style.display = "flex" 
+       addBook.style.display = "none"
+       closeBook.style.display = "flex"
+       isOpen = true
+    }
+    
+}

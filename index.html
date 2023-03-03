@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="reset.css"/>
     <link rel="stylesheet" type="text/css" href="styles.css"/> 
     <link href="icons/css/all.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/d0594a9208.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
@@ -21,8 +22,30 @@
                  <div class="title">
                      <h1>Книжная полка</h1>
                  </div>
+                     <button onclick="addMenu()" id="addbook" class="add-button">Добавить книгу</button>
              </div>
          </div>
+         <div class="form-block"  id="formblock">
+             <div class="form-title">
+                 Добавить новую книгу:
+                 <a onclick="addMenu()" id="closebook" class="icon-close"><i class="fa-solid fa-xmark"></i></a>
+         </div>
+             <div class="form-name" >
+                 <label>Название:</label>
+                 <input id="title"/>
+                 <label>Автор:</label>
+                 <input id="authors"/>
+                 <label>Год издания:</label>
+                 <input id="year"/>
+                 <label>Издательство:</label>
+                 <input id="publish"/>
+                 <label>Cсылка на изображение:</label>
+                 <input id="image"/>
+             </div>    
+                 <button onclick="addBook()" class="form-button">Сохранить</button>
+         
+         
+
      </header>
     <!--main-->
      <main>

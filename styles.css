@@ -18,6 +18,10 @@ body {
 .title-container {
     max-width: 1024px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     
 }
 .title {
@@ -27,11 +31,86 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
 }
-
+.add-button {
+    background-color:#08283d;
+    color: white;
+    font-size: 14px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-button:hover {
+    background-color: #1678b9;
+}
+.form-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f2f2f2; 
+    border: 2px solid #1678b9;
+    border-radius: 10px;
+    width: 600px;
+    padding: 10px 20px 10px 20px;
+    display: none;
+    position: fixed;
+}
+.form-title {
+    display: flex;
+    justify-content: space-between;
+    color: #08283d;
+    font-size: 20px;
+}
+.icon-close {
+    font-size: 20px;
+    color: #1678b9;
+}
+.icon-close:hover {
+    color: #08283d;
+}
+.form-name {
+    color: #08283d;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 10px;
+    width: 300px;
+}
+input {
+    border-radius: 5px;
+    border: 1px solid #1678b9; 
+    cursor: pointer;
+    font-size: 16px;
+    color: grey;
+    min-width: 100px;
+    max-width: 600px;
+}
+input:focus {
+  outline: 1px solid #1678b9;
+  outline-color: #08283d;  
+}
+.form-button {
+    align-self: last baseline;
+    background-color: #1678b9;
+    color: white;
+    font-size: 14px;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.form-button:hover {
+    background-color: #08283d;
+}
 .background-main {
     background-color: #f2f2f2;
     background-size: contain;
-    min-height: 1000px;
+    padding-bottom: 20px;
 }
 .main {
     max-width: 1024px;
@@ -94,8 +173,10 @@ body {
 @media(max-width:1024px){
 .title {
     padding-left: 20px;
-    padding-top: 20px;
     font-size:28px ;
+}
+.add-button {
+    margin-right: 20px;
 }
 .main {
     margin-left: 20px;
@@ -107,5 +188,23 @@ body {
         display: flex;
         justify-content: center;
         padding-bottom: 20px;
+    }
+    .form-block {
+        width: 300px;
+    }
+    .form-button {
+        width: 100px;
+        height: 25px;
+        margin-top: 10px;
+    }
+}
+@media(max-width:500px){
+    .title {
+        font-size: 24px;
+    }
+    .add-button {
+        width: 140px;
+        height: 30px;
+        font-size: 12px;
     }
 }
