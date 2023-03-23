@@ -48,6 +48,17 @@ body {
     background-color: #1678b9;
 }
 .form-block {
+    background-color: #08283d77;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,9 +66,7 @@ body {
     border: 2px solid #1678b9;
     border-radius: 10px;
     width: 600px;
-    padding: 10px 20px 10px 20px;
-    display: none;
-    position: fixed;
+    padding: 10px 20px 10px 20px; 
 }
 .form-title {
     display: flex;
@@ -182,6 +191,13 @@ input:focus {
     margin-left: 20px;
     padding-bottom: 20px;
 }
+.form-block{
+        display: none;
+        align-items: start; 
+    } 
+    .form{
+        margin-top: 90px; 
+    }
 }
 @media(max-width:660px){
     .main {
@@ -189,7 +205,8 @@ input:focus {
         justify-content: center;
         padding-bottom: 20px;
     }
-    .form-block {
+    
+    .form{
         width: 300px;
     }
     .form-button {

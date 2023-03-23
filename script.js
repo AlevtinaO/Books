@@ -75,6 +75,7 @@ function deleteBook(id){
     const bookIndex=books.indexOf(book)
     books.splice(bookIndex,1)
     renderBook()
+    saveToLocalStorage()
 }
 
 //добавление функции очистки полей
@@ -104,12 +105,47 @@ const newBook = {
 books.push(newBook) // добавление новой книги
 clearForm()   // функция очистки
 renderBook() // функция добавления книги, переписывающая список
-addMenu() // функция закрытия формы
+closeModal()
+saveToLocalStorage()
 }
+
+//сохранение в Local Storage
+function saveToLocalStorage(){
+const BookJSON=JSON.stringify(books)
+localStorage.setItem("BookSt",BookJSON)
+}
+
+const BookJSON=localStorage.getItem("BookSt")
+const BackBook=JSON.parse(BookJSON)
+
+if(BookJSON)
+books=BackBook
+
+//модальное окно
+const container = document.getElementById("formblock")
+    const openBook = document.getElementById("addbook")
+    const closeBook =document.getElementById("closebook")
+
+    function closeModal(){
+        container.style.display='none'
+    }
+    
+    function openModal(){
+        container.style.display='flex'
+    }
+//открытие закрытие
+    closeBook.addEventListener('click',closeModal)
+    openBook.addEventListener('click',openModal)
+//сохранение
+    const newBook=document.getElementById("newbook")
+    newBook.addEventListener('click',addBook)
+
+
+
 renderBook() // вызов функции, чтобы существующий список был виден
  
 //функция открытия и закрытия формы
-let isOpen = false
+/*let isOpen = false
 
 function addMenu() {
     const container = document.getElementById("formblock")
@@ -129,4 +165,8 @@ function addMenu() {
        isOpen = true
     }
     
-}
+}*/
+
+
+
+
